@@ -129,3 +129,6 @@ MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),"tcc_robotica/static_cdn")
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),"tcc_robotica/media_cdn")
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
