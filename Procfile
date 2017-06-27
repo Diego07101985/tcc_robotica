@@ -1,1 +1,1 @@
-gunicorn --pythonpath web --log-file -
+web: gunicorn web_application:web --log-file -
