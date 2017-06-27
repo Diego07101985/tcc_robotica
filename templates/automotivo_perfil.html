@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+        <div class="jumbotron  login_jumbo">
+            <h2 align="center" >Bem vindo {{perfil.nome}}</h2>
+            <form class="form-signin" role="form" action="/automotivo/registrar/" method="post">
+            {% csrf_token %}
+            <input type="hidden" disabled="disabled" id="hidden_servo" value="{{perfil.servo_motor}}">
+             <input type="hidden" disabled="disabled" id="hidden_ar_condicionado" value="{{perfil.ar_condicionado}}">
+             <input type="hidden"  id="hidden_radio"
+                     disabled="disabled" value="{{perfil.radio}}">
+              <input type="hidden" id="id_nome" name="nome" value="{{perfil.nome}}">
+              <div class="row">
+                  <div class="col-sm-4 col-md-4 col-lg-4" align="center">
+                      <img style="margin-top:30px" alt="radio" 
+                      src='{% static "images/radio.png" %}'>
+                      <h2>Radio</h2>
+                        <input type="checkbox"  id="id_radio" name="radio" checked /> 
+                      <div ></div>
+                        
+                      </div>
+                      <div class="col-sm-4 col-md-4 col-lg-4" align="center" >
+                          <img style="margin-top:30px;" alt="air" src='{% static "images/air.png"%}'>
+                      <h2>Ar Concidionado</h2>
+                      {% for escolha in form.ar_condicionado %}
+                      {{ escolha.choice_label }}
+                      {{ escolha.tag }}
+                    {% endfor %}
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4" align="center">
+                          <img style="margin-top:30px; margin-left:2px;" alt="seat" src='{% static "images/seat.png"%}'>
+                    <h2>Banco</h2>
+                   {% for escolha in form.servo_motor%}
+                      {{ escolha.choice_label }}
+                      {{ escolha.tag }}
+                    {% endfor %}
+    </div>
+  </div>
+  </div>
+
+   <input type="submit" id="aplicar" class="btn-lg btn-primary col-md-offset-11"  value="aplicar"/> 
+   </form>
+   </div>
+   
+{% endblock content %}

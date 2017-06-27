@@ -1,0 +1,25 @@
+
+{% load staticfiles %}
+<div class="col-md-8  col-md-offset-2  panel-class">
+	<div class="jumbotron class_jumbo" >
+		<div style="padding-left:13%;">
+			<h2>Sistema de configuração  do automóvel</h2>
+			<p style="padding-left: 3%;">O sistema não conseguiu encontrar o seu Perfil , e  iniciará o <br>
+			processo de Indentificação do Usuario</p>
+		</div>
+		   <div class="col-md-9 col-md-offset-1" >
+						 <div class="form-group">
+				 			 <label for="sel1">Selecione o tipo de algoritmo de Classificação:</label>
+				  				<select class="form-control" id="tipo_algoritmo">
+				    				<option value="1">EigenFaces</option>
+				    				<option value="2">FisherFaces</option>
+				  				</select>
+						</div>
+		    </div>
+		    	<div class="input-group col-md-5  col-md-offset-3" style="padding-top:3%">
+ 					 <span class="input-group-addon" id="sizing-addon2">nm</span>
+  					 <input type="text" id="nome" class="form-control" placeholder="Escreva o seu nome " aria-describedby="sizing-addon2">
+				</div>
+	    		<p  style="padding-top:5%;"><a  id="classificacao_button"   class=" btn-lg btn-primary col-md-offset-9" >Começar</a></p>
+    </div>
+ </div>	

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+<div class="col-md-8  col-md-offset-2">
+	<div class="jumbotron login_jumbo">
+		<div style="padding-left:5%;">
+			<h2>Sistema de configuração  do automóvel</h2>
+			<p style="padding-left: 8%;">
+	 Ao clicar no botão o sistema tentará detectar sua face</p>
+		</div>
+		   <div class="col-md-9 col-md-offset-1" >
+						 <div class="form-group">
+				 			 <label for="sel1">Selecione um tipo de padrão de detecção:</label>
+				  				<select class="form-control" id="tipo_algoritmo">
+				    				<option value="1">EigenFaces</option>
+				    				<option value="2">FisherFaces</option>
+				  				</select>
+						</div>
+		    </div>
+	    		<p  style="padding-top:5%;"><a  id="detectar_pessoa"   class=" btn-lg btn-primary col-md-offset-5" >Começar</a></p>
+    </div>
+ </div>	
+
+
+
+ </div>	
+
+ {% include "automotivo_class.html" %}
+
+{% endblock content %}
+	
