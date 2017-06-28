@@ -1,8 +1,8 @@
 // This function connects to the rosbridge server running on the local computer on port 9090
-/*
+
 var rbServer = new ROSLIB.Ros({
-    url : 'ws://0.tcp.ngrok.io:19884'
- });*/
+    url : 'ws://0.tcp.ngrok.io:15835'
+ });
 
   var servo_motor = $("#hidden_servo").val();
   var ar_condicionado= $("#hidden_ar_condicionado").val();
@@ -39,7 +39,7 @@ var rbServer = new ROSLIB.Ros({
    }
 });
 
-/*  
+
 setTimeout(function() {
             $('.alert-success').fadeOut('slow');
   }, 4000);         
@@ -61,7 +61,7 @@ var template = $("#feedback");
 var response = "";
  
 
-/*
+
  function executarBuscaFacial(){
     var face_client = new ROSLIB.Service({
         ros : rbServer,
@@ -126,7 +126,7 @@ var response = "";
    });
  }
 
-*/
+
 
 
 
