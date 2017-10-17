@@ -3,7 +3,7 @@
 {% load static %}
         <div class="jumbotron  login_jumbo">
             <h2 align="center" >Bem vindo {{perfil.nome}}</h2>
-            <form class="form-signin" role="form" action="/automotivo/registrar/" method="post">
+            <form class="form-signin" id="target" role="form" action="/automotivo/registrar/" method="post">
             {% csrf_token %}
             <input type="hidden" disabled="disabled" id="hidden_servo" value="{{perfil.servo_motor}}">
              <input type="hidden" disabled="disabled" id="hidden_ar_condicionado" value="{{perfil.ar_condicionado}}">

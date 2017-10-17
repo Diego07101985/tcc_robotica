@@ -1,14 +1,19 @@
 // This function connects to the rosbridge server running on the local computer on port 9090
 
 var rbServer = new ROSLIB.Ros({
-    url : 'ws://0.tcp.ngrok.io:15835'
+    url : 'ws://0.tcp.ngrok.io:10430'
  });
 
   var servo_motor = $("#hidden_servo").val();
   var ar_condicionado= $("#hidden_ar_condicionado").val();
   var radio_perfil = $("#hidden_radio").attr("value");
 
+  
+  $(".panel-class").css("display","none");
 
+  validaRadio();
+
+function validaRadio(){
   if(radio_perfil == "True"){
 
   $(document).ready(function() {
@@ -24,13 +29,30 @@ var rbServer = new ROSLIB.Ros({
                 checkedLabel: 'NO',
                 uncheckedLabel: 'Yes'
             });});
-
   } 
+}
+
+
+
 
  $("#id_radio").change(function()
- {
-  radio_perfil  = $("#id_radio").prop("checked");
+ { 
+   if(radio_perfil == "True"){      
+        $("#hidden_radio").prop("value","True");
+        radio_perfil = "False";
+       }
+  else{   
+      $("#hidden_radio").prop("value","False");
+      radio_perfil = "True";
+  } 
  });
+
+$( "#target" ).submit(function( event ) {
+  if(radio_perfil== "True"){
+      $("#id_radio").prop("checked",true);
+  }
+});
+
 
 
  $('input[type=radio]').each(function(index) {
@@ -44,7 +66,6 @@ setTimeout(function() {
             $('.alert-success').fadeOut('slow');
   }, 4000);         
  
-initValores();
 
 $("#detectar_pessoa" ).on("click",function() {
     executarBuscaFacial();
@@ -55,12 +76,11 @@ $("#classificacao_button" ).on("click",function() {
 });
 
 $("#aplicar" ).on("click",function() {
-    setarValoresArduino();
+    /*setarValoresArduino();*/
 });
 var template = $("#feedback");
 var response = "";
  
-
 
  function executarBuscaFacial(){
     var face_client = new ROSLIB.Service({
@@ -85,6 +105,7 @@ var response = "";
 
    });
  }
+
 
 
  function executarClassificacaoFacial(){
@@ -117,17 +138,12 @@ var response = "";
 
     var request = new ROSLIB.ServiceRequest({
         servo_angulo: parseInt(servo_motor),
-        radio : radio_perfil==true,
+        radio : radio_perfil=="True",
         nivel_arcondicionado :parseInt(ar_condicionado),
      });
    
     face_client.callService(request, function(result) {
        valor = result.update_servo
    });
+
  }
-
-
-
-
-
-
