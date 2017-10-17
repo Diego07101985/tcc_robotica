@@ -76,7 +76,7 @@ $("#classificacao_button" ).on("click",function() {
 });
 
 $("#aplicar" ).on("click",function() {
-    /*setarValoresArduino();*/
+    setarValoresArduino();
 });
 var template = $("#feedback");
 var response = "";
