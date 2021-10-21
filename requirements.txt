@@ -1,5 +1,5 @@
 alabaster==0.7.10
-Babel==2.4.0
+Babel==2.9.1
 certifi==0.0.8
 chardet==1.0.1
 chardet2==2.0.3
